@@ -15,23 +15,23 @@ public class TodoService {
 
     private final TodoRepository todoRepository;
 
-    public List<Todo> getAll(){
+    public List<Todo> list(){
         Sort sort = Sort.by("descricao").ascending();
         return todoRepository.findAll(sort);
     }
 
     public List<Todo> create(Todo todo){
         todoRepository.save(todo);
-        return getAll();
+        return list();
     }
 
     public List<Todo> update(Todo todo){
         todoRepository.save(todo);
-        return getAll();
+        return list();
     }
 
     public List<Todo> delete(Long id){
         todoRepository.deleteById(id);
-        return getAll();
+        return list();
     }
 }
