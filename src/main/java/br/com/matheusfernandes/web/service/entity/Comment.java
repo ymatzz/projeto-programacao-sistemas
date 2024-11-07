@@ -10,6 +10,10 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "created_user_id", referencedColumnName = "id")
+    private User createdUserId;
+
     private String message;
 }

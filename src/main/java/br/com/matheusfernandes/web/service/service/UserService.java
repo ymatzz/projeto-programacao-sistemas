@@ -8,15 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
-
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public List<User> list(){
         Sort sort = Sort.by("name").ascending();
