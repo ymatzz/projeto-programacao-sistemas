@@ -14,6 +14,10 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "created_user_id", referencedColumnName = "id")
     private User createdUserId;
+    
+    @ManyToOne
+    @JoinColumn(name = "created_new_id", referencedColumnName = "id")
+    private New createdNewId;
 
     private String message;
 }
