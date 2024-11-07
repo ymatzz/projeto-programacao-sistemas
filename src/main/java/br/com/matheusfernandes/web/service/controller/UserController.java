@@ -1,7 +1,7 @@
-package br.com.matheusfernandes.todo_list.controller;
+package br.com.matheusfernandes.web.service.controller;
 
-import br.com.matheusfernandes.todo_list.entity.User;
-import br.com.matheusfernandes.todo_list.service.UserService;
+import br.com.matheusfernandes.web.service.entity.User;
+import br.com.matheusfernandes.web.service.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

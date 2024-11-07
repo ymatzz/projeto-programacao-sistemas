@@ -1,6 +1,6 @@
-package br.com.matheusfernandes.todo_list.repository;
+package br.com.matheusfernandes.web.service.repository;
 
-import br.com.matheusfernandes.todo_list.entity.User;
+import br.com.matheusfernandes.web.service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
