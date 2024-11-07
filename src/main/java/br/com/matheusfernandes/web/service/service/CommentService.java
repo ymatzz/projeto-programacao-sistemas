@@ -1,15 +1,16 @@
 package br.com.matheusfernandes.web.service.service;
 
 import br.com.matheusfernandes.web.service.entity.Comment;
-import br.com.matheusfernandes.web.service.entity.User;
 import br.com.matheusfernandes.web.service.entity.New;
+import br.com.matheusfernandes.web.service.entity.User;
 import br.com.matheusfernandes.web.service.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
-@service
+
+@Service
 @RequiredArgsConstructor
 public class CommentService {
     private final CommentRepository commentRepository;
@@ -17,6 +18,7 @@ public class CommentService {
     public List<Comment> list(){
         return commentRepository.findAll();
     }
+
     public List<Comment> create(Comment comment){
         commentRepository.save(comment);
         return list();
@@ -40,8 +42,8 @@ public class CommentService {
         return commentRepository.getCommentByUserId(user.getId());
     }
 
-    public List<Comment> getCommentsByNewId(New new){
-        return commentRepository.getCommentByNewId(new.getId());
+    public List<Comment> getCommentsByNewId(New news){
+        return commentRepository.getCommentByNewId(news.getId());
     }
 }
 
