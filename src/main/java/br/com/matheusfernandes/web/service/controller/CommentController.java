@@ -26,7 +26,7 @@ public class CommentController {
     }
 
     @PostMapping
-    List<Comment> create(@RequestBody CommentDTO commentDTO){
+    Comment create(@RequestBody CommentDTO commentDTO){
         return commentService.create(commentDTO);
     }
 

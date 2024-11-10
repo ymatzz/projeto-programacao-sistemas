@@ -31,11 +31,11 @@ public class CommentService {
         }
     }
 
-    public List<Comment> create(CommentDTO commentDTO) {
+    public Comment create(CommentDTO commentDTO) {
         try {
             Comment comment = commentMapperCreate(commentDTO);
             commentRepository.save(comment);
-            return list();
+            return comment;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao criar comentário", e);
         }
