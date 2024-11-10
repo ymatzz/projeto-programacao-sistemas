@@ -26,7 +26,7 @@ public class NewController {
     }
 
     @PostMapping
-    List<New> create(@RequestBody NewDTO newDTO) {
+    New create(@RequestBody NewDTO newDTO) {
         return newService.create(newDTO);
     }
 

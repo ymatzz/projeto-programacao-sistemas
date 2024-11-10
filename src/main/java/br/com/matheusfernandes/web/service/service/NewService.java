@@ -31,11 +31,11 @@ public class NewService {
         }
     }
 
-    public List<New> create(NewDTO newDTO) {
+    public New create(NewDTO newDTO) {
         try {
             New news = newMapperCreate(newDTO);
             newRepository.save(news);
-            return list();
+            return news;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao criar notícia", e);
         }
