@@ -32,6 +32,7 @@ public class CommentController {
 
     @PutMapping("/{id}")
     List<Comment> update(@PathVariable("id") Long id, @RequestBody CommentDTO comment){
+        comment.setId(id);
         return commentService.update(comment);
     }
 

@@ -13,11 +13,11 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "created_user_id", referencedColumnName = "id")
-    private User createdUserId;
-    
+    private User createdUser;
+
     @ManyToOne
     @JoinColumn(name = "created_new_id", referencedColumnName = "id")
-    private New createdNewId;
+    private New createdNew;
 
     private String message;
 }

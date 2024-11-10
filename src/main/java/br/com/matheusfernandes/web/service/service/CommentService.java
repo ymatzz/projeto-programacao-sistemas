@@ -56,31 +56,6 @@ public class CommentService {
         }
     }
 
-    private Comment commentMapperUpdate(CommentDTO commentDTO) {
-        User user = userRepository.findById(commentDTO.getCreatedUserId())
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
-        New news = newRepository.findById(commentDTO.getCreatedNewId())
-                .orElseThrow(() -> new IllegalArgumentException("Notícia não encontrada"));
-        Comment comment = new Comment();
-        comment.setId(commentDTO.getId());
-        comment.setCreatedUserId(user);
-        comment.setCreatedNewId(news);
-        comment.setMessage(commentDTO.getMessage());
-        return comment;
-    }
-
-    private Comment commentMapperCreate(CommentDTO commentDTO) {
-        User user = userRepository.findById(commentDTO.getCreatedUserId())
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
-        New news = newRepository.findById(commentDTO.getCreatedNewId())
-                .orElseThrow(() -> new IllegalArgumentException("Notícia não encontrada"));
-        Comment comment = new Comment();
-        comment.setCreatedUserId(user);
-        comment.setCreatedNewId(news);
-        comment.setMessage(commentDTO.getMessage());
-        return comment;
-    }
-
     public List<Comment> delete(Long id) {
         try {
             if (!commentRepository.existsById(id)) {
@@ -119,5 +94,30 @@ public class CommentService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao listar comentários da notícia", e);
         }
+    }
+
+    private Comment commentMapperUpdate(CommentDTO commentDTO) {
+        User user = userRepository.findById(commentDTO.getCreatedUserId())
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        New news = newRepository.findById(commentDTO.getCreatedNewId())
+                .orElseThrow(() -> new IllegalArgumentException("Notícia não encontrada"));
+        Comment comment = new Comment();
+        comment.setId(commentDTO.getId());
+        comment.setCreatedUser(user);
+        comment.setCreatedNew(news);
+        comment.setMessage(commentDTO.getMessage());
+        return comment;
+    }
+
+    private Comment commentMapperCreate(CommentDTO commentDTO) {
+        User user = userRepository.findById(commentDTO.getCreatedUserId())
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        New news = newRepository.findById(commentDTO.getCreatedNewId())
+                .orElseThrow(() -> new IllegalArgumentException("Notícia não encontrada"));
+        Comment comment = new Comment();
+        comment.setCreatedUser(user);
+        comment.setCreatedNew(news);
+        comment.setMessage(commentDTO.getMessage());
+        return comment;
     }
 }

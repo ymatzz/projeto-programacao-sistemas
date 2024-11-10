@@ -22,7 +22,7 @@ public class New {
 
     @ManyToOne
     @JoinColumn(name = "created_user_id", referencedColumnName = "id")
-    private User createdUserId;
+    private User createdUser;
 
     private String content;
 
