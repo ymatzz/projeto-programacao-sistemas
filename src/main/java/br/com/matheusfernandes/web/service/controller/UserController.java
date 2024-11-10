@@ -1,7 +1,7 @@
-package br.com.matheusfernandes.todo_list.controller;
+package br.com.matheusfernandes.web.service.controller;
 
-import br.com.matheusfernandes.todo_list.entity.User;
-import br.com.matheusfernandes.todo_list.service.UserService;
+import br.com.matheusfernandes.web.service.entity.User;
+import br.com.matheusfernandes.web.service.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,14 +9,10 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
-    public UserController(UserService userService){
-        this.userService = userService;
-    }
-
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping
     List<User> list(){
@@ -29,13 +25,13 @@ public class UserController {
     }
 
     @PostMapping
-    List<User> create(@RequestBody User user){
+    User create(@RequestBody User user){
         return userService.create(user);
     }
 
     @PutMapping("/{id}")
     List<User> update(@PathVariable("id") Long id, @RequestBody User user){
-
+        user.setId(id);
         return userService.update(user);
     }
 

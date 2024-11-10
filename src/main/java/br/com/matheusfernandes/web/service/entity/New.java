@@ -1,4 +1,4 @@
-package br.com.matheusfernandes.todo_list.entity;
+package br.com.matheusfernandes.web.service.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,11 +16,13 @@ public class New {
 
     private String name;
 
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     @ManyToOne
     @JoinColumn(name = "created_user_id", referencedColumnName = "id")
-    private User createdUserId;
+    private User createdUser;
 
     private String content;
 
