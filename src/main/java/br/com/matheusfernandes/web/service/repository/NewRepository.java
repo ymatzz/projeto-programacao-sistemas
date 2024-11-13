@@ -1,6 +1,5 @@
 package br.com.matheusfernandes.web.service.repository;
 
-import br.com.matheusfernandes.web.service.entity.Comment;
 import br.com.matheusfernandes.web.service.entity.New;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

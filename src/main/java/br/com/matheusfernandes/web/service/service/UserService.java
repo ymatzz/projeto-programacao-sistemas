@@ -1,6 +1,7 @@
 package br.com.matheusfernandes.web.service.service;
 
 import br.com.matheusfernandes.web.service.entity.User;
+import br.com.matheusfernandes.web.service.helper.CryptoHelper;
 import br.com.matheusfernandes.web.service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -28,6 +29,7 @@ public class UserService {
 
     public User create(User user) {
         try {
+            user.setPasswordHash(CryptoHelper.generateMD5Hash(user.getPasswordHash()));
             userRepository.save(user);
             return user;
         } catch (Exception e) {
