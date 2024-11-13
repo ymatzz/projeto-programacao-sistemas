@@ -1,8 +1,10 @@
 package br.com.matheusfernandes.web.service.service;
 
 import br.com.matheusfernandes.web.service.dto.LoginDTO;
+import br.com.matheusfernandes.web.service.dto.UserDTO;
 import br.com.matheusfernandes.web.service.entity.User;
 import br.com.matheusfernandes.web.service.helper.CryptoHelper;
+import br.com.matheusfernandes.web.service.helper.UserMapper;
 import br.com.matheusfernandes.web.service.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,9 @@ import java.util.Objects;
 public class LoginService {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-    public User login(LoginDTO loginDTO) {
+    public UserDTO login(LoginDTO loginDTO) {
         try {
             // Procura o usuário
             User user = userRepository.findByEmail(loginDTO.getEmail());
@@ -35,7 +38,7 @@ public class LoginService {
             }
 
             // Caso tudo ocorra bem, retornamos o usuário
-            return user;
+            return userMapper.mappperUserToUserDTO(user);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         } catch (Exception e) {
