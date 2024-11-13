@@ -36,6 +36,11 @@ public class NewController {
         return newService.update(newDTO);
     }
 
+    @PatchMapping("/{id}")
+    New patch(@PathVariable("id") Long id, @RequestBody NewDTO newDTO) {
+        return newService.patch(id, newDTO);
+    }
+
     @DeleteMapping("/{id}")
     List<New> delete(@PathVariable("id") Long id) {
         return newService.delete(id);

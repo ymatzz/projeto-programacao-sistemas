@@ -56,6 +56,41 @@ public class NewService {
         }
     }
 
+    public New patch(Long id, NewDTO newDTO) {
+        try {
+            New news = newRepository.findById(id)
+                    .orElseThrow(() -> new NoSuchElementException("Notícia não encontrada para atualização parcial"));
+
+            if (newDTO.getName() != null) {
+                news.setName(newDTO.getName());
+            }
+            if (newDTO.getCategoryId() != null) {
+                Category category = categoryRepository.findById(newDTO.getCategoryId())
+                        .orElseThrow(() -> new IllegalArgumentException("Categoria não encontrada"));
+                news.setCategory(category);
+            }
+            if (newDTO.getCreatedUserId() != null) {
+                User user = userRepository.findById(newDTO.getCreatedUserId())
+                        .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+                news.setCreatedUser(user);
+            }
+            if (newDTO.getContent() != null) {
+                news.setContent(newDTO.getContent());
+            }
+            if (newDTO.getTags() != null) {
+                news.setTags(newDTO.getTags());
+            }
+
+            newRepository.save(news);
+            return news;
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Erro ao atualizar parcialmente a notícia", e);
+        }
+    }
+
     public List<New> delete(Long id) {
         try {
             if (!newRepository.existsById(id)) {
@@ -80,19 +115,21 @@ public class NewService {
         }
     }
 
-    public List<New> getNewsByUserId(Long id){
+    public List<New> getNewsByUserId(Long id) {
         try {
             return newRepository.getNewsByUserId(id);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao listar noticias do usuário", e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao listar noticias do usuário",
+                    e);
         }
     }
 
-    public List<New> getNewsByCategoryId(Long id){
+    public List<New> getNewsByCategoryId(Long id) {
         try {
             return newRepository.getNewsByCategoryId(id);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao listar noticias da categoria", e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao listar noticias da categoria",
+                    e);
         }
     }
 
