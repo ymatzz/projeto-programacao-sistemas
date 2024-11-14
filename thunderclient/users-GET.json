@@ -1,0 +1,26 @@
+[
+    {
+        "id": 2,
+        "name": "Luis",
+        "username": "luisf.dev",
+        "email": "luis@gmail.com"
+    },
+    {
+        "id": 3,
+        "name": "Marcola do PCC",
+        "username": "marcoladopcc123",
+        "email": "marcoladopcc@gmail.com"
+    },
+    {
+        "id": 4,
+        "name": "Mathias",
+        "username": "matzz",
+        "email": "mathias@gmail.com"
+    },
+    {
+        "id": 6,
+        "name": "teste",
+        "username": "tester",
+        "email": "teste@gmail.com"
+    }
+]

@@ -1,0 +1,20 @@
+{
+    "id": 3,
+    "name": "Minha terceira notícia",
+    "category": {
+        "id": 1,
+        "name": "CS2"
+    },
+    "createdUser": {
+        "id": 2,
+        "name": "Luis",
+        "passwordHash": "e6ba4060d7bc5a577715be0c5352a6f1",
+        "username": "luisf.dev",
+        "email": "luis@gmail.com"
+    },
+    "content": "[{\"type\": \"heading\", \"content\": \"Minha notícia!\"}, {\"type\": \"paragraph\", \"content\": \"Teste o editor de texto, ele é semelhante ao do Notion, teste usar o /\"}, {\"type\": \"paragraph\", \"content\": \"Caso esteja acostumado, Markdown é suportado exemplo # para título e ## para subtítulo.\"}, {\"type\": \"image\", \"props\": {\"url\": \"https://macknews.gg/examples/events/2.png\", \"name\": \"2.png\", \"caption\": \"\", \"showPreview\": true, \"previewWidth\": 512, \"textAlignment\": \"left\", \"backgroundColor\": \"default\"}}, {\"type\": \"paragraph\", \"content\": \"Por enquanto para adicionar uma imagem ela precisa ter um link direto da internet, mas o idela será termos um repositório próprio de imagens.\"}, {\"type\": \"paragraph\"}]",
+    "imageUrl": "https://szmhwgfdrzbcracpwbng.supabase.co/storage/v1/object/public/news/1.jpg",
+    "createdAt": 1731282520.000000000,
+    "updatedAt": null,
+    "tags": []
+}

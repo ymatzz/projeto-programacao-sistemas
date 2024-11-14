@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Minha primeira notícia ✨",
+        "category": {
+            "id": 1,
+            "name": "CS2"
+        },
+        "createdUser": {
+            "id": 2,
+            "name": "Luis",
+            "passwordHash": "e6ba4060d7bc5a577715be0c5352a6f1",
+            "username": "luisf.dev",
+            "email": "luis@gmail.com"
+        },
+        "content": "[{\"type\": \"heading\", \"content\": \"Escreva a notícia aqui!\"}, {\"type\": \"paragraph\", \"content\": \"Teste o editor de texto, ele é semelhante ao do Notion, teste usar o /\"}, {\"type\": \"paragraph\", \"content\": \"Caso esteja acostumado, Markdown é suportado exemplo # para título e ## para subtítulo.\"}, {\"type\": \"image\", \"props\": {\"url\": \"https://macknews.gg/examples/events/2.png\", \"name\": \"2.png\", \"caption\": \"\", \"showPreview\": true, \"previewWidth\": 512, \"textAlignment\": \"left\", \"backgroundColor\": \"default\"}}, {\"type\": \"paragraph\", \"content\": \"Por enquanto para adicionar uma imagem ela precisa ter um link direto da internet, mas o idela será termos um repositório próprio de imagens.\"}, {\"type\": \"paragraph\"}]",
+        "imageUrl": "https://szmhwgfdrzbcracpwbng.supabase.co/storage/v1/object/public/news/1.jpg",
+        "createdAt": 1731282520.000000000,
+        "updatedAt": null,
+        "tags": []
+    },
+    {
+        "id": 2,
+        "name": "Quem joga LoL morre mais cedo",
+        "category": {
+            "id": 2,
+            "name": "Liga das Lendias"
+        },
+        "createdUser": {
+            "id": 4,
+            "name": "Mathias",
+            "passwordHash": "c902e1d50b8c78ad8eb6d150214a1b61",
+            "username": "matzzviado",
+            "email": "mathias@gmail.com"
+        },
+        "content": "[{\"id\":\"d59cc9ac-651e-4401-9705-80bb6fbfe636\",\"type\":\"paragraph\",\"props\":{\"textColor\":\"default\",\"backgroundColor\":\"default\",\"textAlignment\":\"left\"},\"content\":[{\"type\":\"text\",\"text\":\"Isso é um fato\",\"styles\":{\"bold\":true}}],\"children\":[]},{\"id\":\"7cd564d8-dc6c-4449-ad70-d29c439cba7b\",\"type\":\"paragraph\",\"props\":{\"textColor\":\"default\",\"backgroundColor\":\"default\",\"textAlignment\":\"left\"},\"content\":[],\"children\":[]},{\"id\":\"9630e72d-4465-4d7e-9499-3c6097ab65f6\",\"type\":\"heading\",\"props\":{\"textColor\":\"default\",\"backgroundColor\":\"default\",\"textAlignment\":\"left\",\"level\":2},\"content\":[{\"type\":\"text\",\"text\":\"Fatos gamer\",\"styles\":{}}],\"children\":[]},{\"id\":\"9e91bde5-a210-4ed4-9583-4a87eb1ebf8b\",\"type\":\"paragraph\",\"props\":{\"textColor\":\"default\",\"backgroundColor\":\"default\",\"textAlignment\":\"left\"},\"content\":[],\"children\":[]}]",
+        "imageUrl": "https://szmhwgfdrzbcracpwbng.supabase.co/storage/v1/object/public/news/2.jpg",
+        "createdAt": 1731371145.000000000,
+        "updatedAt": 1731599145.343862000,
+        "tags": []
+    }
+]
