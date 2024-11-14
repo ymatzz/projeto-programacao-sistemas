@@ -39,7 +39,4 @@ public class New {
 
     @LastModifiedDate
     private Instant updatedAt;
-
-    @ElementCollection
-    private List<String> tags;
 }

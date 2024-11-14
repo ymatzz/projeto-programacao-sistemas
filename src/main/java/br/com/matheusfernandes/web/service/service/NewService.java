@@ -2,6 +2,7 @@ package br.com.matheusfernandes.web.service.service;
 
 import br.com.matheusfernandes.web.service.dto.NewDTO;
 import br.com.matheusfernandes.web.service.entity.Category;
+import br.com.matheusfernandes.web.service.entity.Comment;
 import br.com.matheusfernandes.web.service.entity.New;
 import br.com.matheusfernandes.web.service.entity.User;
 import br.com.matheusfernandes.web.service.repository.CategoryRepository;
@@ -23,6 +24,7 @@ public class NewService {
     private final NewRepository newRepository;
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
+    private final CommentService commentService;
 
     public List<New> list() {
         try {
@@ -78,9 +80,6 @@ public class NewService {
             if (newDTO.getContent() != null) {
                 news.setContent(newDTO.getContent());
             }
-            if (newDTO.getTags() != null) {
-                news.setTags(newDTO.getTags());
-            }
 
             news.setUpdatedAt(Instant.now());
 
@@ -98,6 +97,10 @@ public class NewService {
         try {
             if (!newRepository.existsById(id)) {
                 throw new NoSuchElementException("Notícia não encontrada para exclusão");
+            }
+            List<Comment> comments = commentService.getCommentsByNewId(id);
+            for (Comment comment : comments){
+                commentService.delete(comment.getId());
             }
             newRepository.deleteById(id);
             return list();
@@ -148,7 +151,6 @@ public class NewService {
         news.setCategory(category);
         news.setCreatedUser(user);
         news.setContent(newDTO.getContent());
-        news.setTags(newDTO.getTags());
         news.setUpdatedAt(Instant.now());
         return news;
     }
@@ -164,7 +166,6 @@ public class NewService {
         news.setCategory(category);
         news.setCreatedUser(user);
         news.setContent(newDTO.getContent());
-        news.setTags(newDTO.getTags());
         news.setCreatedAt(Instant.now());
         return news;
     }
