@@ -15,7 +15,7 @@ public class Comment {
     @JoinColumn(name = "created_user_id", referencedColumnName = "id")
     private User createdUser;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "created_new_id", referencedColumnName = "id")
     private New createdNew;
 
