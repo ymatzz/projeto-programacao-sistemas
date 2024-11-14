@@ -46,7 +46,7 @@ public class CommentController {
         return commentService.getCommentsByUserId(id);
     }
 
-    @GetMapping("?createdNewId={id}")
+    @GetMapping("/new/{id}")
     List<Comment> getCommentsByNewId(@PathVariable("id") Long id){
         return commentService.getCommentsByNewId(id);
     }

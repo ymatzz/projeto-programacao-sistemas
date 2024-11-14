@@ -110,8 +110,7 @@ public class CommentService {
     }
 
     private Comment commentMapperCreate(CommentDTO commentDTO) {
-        User user = userRepository.findById(commentDTO.getCreatedUserId())
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        User user = userRepository.findById(commentDTO.getCreatedUserId()).orElse(null);
         New news = newRepository.findById(commentDTO.getCreatedNewId())
                 .orElseThrow(() -> new IllegalArgumentException("Notícia não encontrada"));
         Comment comment = new Comment();
